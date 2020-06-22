@@ -1,73 +1,32 @@
-import matplotlib
-matplotlib.use("Qt5Agg")
+from flask import Flask
+from api.health import HealthAPI 
+from api.collections import CollectionsAPI 
+from api.accounts import AccountsAPI 
+from models.user import User
+from util.ext import db, guard
+import random
+import time
 
-from flask import Flask, jsonify, make_response, request
-import numpy as np
-import matplotlib.pyplot as plt
-from mpl_toolkits.axes_grid1 import make_axes_locatable
-import io
-import base64
+def register_blueprints(app):
+    app.register_blueprint(HealthAPI, url_prefix='/health')
+    app.register_blueprint(CollectionsAPI, url_prefix='/collections')
+    app.register_blueprint(AccountsAPI, url_prefix='/accounts')
 
-app = Flask(__name__)
-
-@app.route('/')
-def hello_world():
-    return 'Don\'t talk to me'
-
-# Bad stuff
-X = []
-Y = []
-L = []
-
-@app.route('/api/add_message/', methods=['POST'])
-def add_message():
-    global X
-    global Y
-    global L
-    content = request.json
-    print(content)
-    X.append(content['location'][0])
-    Y.append(content['location'][1])
-    if 'lux' in content['lux']:
-        L.append(content['lux']['lux'])
-    else:
-        if (len(L) == 0):
-            L.append(0)
-        else:
-            L.append(L[-1])
-    data = {'message': 'Created', 'code': 'SUCCESS'}
-    return make_response(jsonify(data), 201)
-
-@app.route('/plot')
-def plot_data():
-    global X
-    global Y
-    global L
-    img = io.BytesIO()
-
-    #plt.scatter(X, Y, c=lux, cmap='plasma')
-
-    fig, ax = plt.subplots()
-    divider = make_axes_locatable(ax)
-    cax = divider.append_axes('right', size='5%', pad=0.05)
-
-    ax.axis('equal')
-    ax.grid()
-
-    if len(X) > 0:
-        im = ax.scatter(X, Y, c=L, cmap='plasma')
-    else:
-        im = ax.scatter([0], [0], c=[0], cmap='plasma')
-
-    fig.colorbar(im, cax=cax, orientation='vertical')
-    cax.set_ylabel('lux')
-
-    plt.savefig(img, format='png')
-    img.seek(0)
-
-    plot_url = base64.b64encode(img.getvalue()).decode()
-
-    return '<img src="data:image/png;base64,{}">'.format(plot_url)
+def init_extentsions(app):
+    db.init_app(app)
+    guard.init_app(app, User)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+
+    random.seed(time.time())
+
+    app = Flask(__name__)
+    app.config.from_object('settings')
+
+    init_extentsions(app)
+    register_blueprints(app)
+    
+    with app.app_context():
+        db.create_all()
+
+    app.run(host='0.0.0.0', port=5000, debug=True)
