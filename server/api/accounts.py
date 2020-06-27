@@ -25,7 +25,7 @@ def index():
         username, password = creds
         user = User(username=username, password=guard.hash_password(password))
         if not user.create(username):
-            return jsonify({'status':'Username exists.'}), 409
+            return jsonify({'status':'Username already exists.'}), 409
         else:
             return jsonify({'status':'User created.'}), 201
 

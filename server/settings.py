@@ -14,6 +14,8 @@ SECRET_KEY = env.str('SECRET_KEY', default='super-secret')
 SECURITY_PASSWORD_HASH = 'HASH'
 SECURITY_PASSWORD_SALT = 'SALT'
 
+STATIC_FOLDER = os.path.join(BASE_DIR, 'static/')
+
 #  Sqlalchemy Settings
 SQLALCHEMY_DATABASE_URI = env.str(
     'DATABASE_URI',

@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Big+Shoulders+Display:wght@700&family=Source+Code+Pro&display=swap');
+
+/*
+font-family: 'Asap Condensed', sans-serif;
+font-family: 'Big Shoulders Display', cursive;
+font-family: 'Source Code Pro', monospace;
+*/
+
+body {
+    background: #43C6AC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(217deg, #F8FFAE, #43C6AC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(217deg, #F8FFAE, #43C6AC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 10px;
+    height: calc(100vh - 20px);
+}
+
+
+body > div {
+    overflow: auto;
+    min-height: 400px;
+    min-width: 400px;
+    border: none;
+    border-radius: 5px;
+    margin: 0;
+    font-family: 'Asap Condensed', sans-serif;
+    background: #e5eee7; 
+    color: #395c41;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+h1 {
+    flex-align: center;
+    font-family: 'Big Shoulders Display', cursive;
+    margin-bottom: 0;
+}
+
+h1 + p {
+    margin-top: 0;
+    text-align: right;
+    padding-right: 20px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+div.line {
+    margin-top: 0;
+    border: 0;
+    border-top: solid #395c41 1px;
+    height: 0;
+}
+
+h2 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: 'Big Shoulders Display', cursive;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+div.field {
+    text-align: left;
+    height: 60px;
+    padding-bottom: 10px;
+}
+
+div.field span {
+    height: 20px;
+    padding-left: 15px;
+}
+
+div.field input {
+    height: 40px;
+    padding: 5px;
+    margin: 0;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 12px;
+    width: 100%;
+    outline: none;
+    padding-left: 15px;
+}
+
+div.field-submit {
+    text-align: center;
+}
+
+div.field-submit input[type=button] {
+    height: 40px;
+    width: 100px;
+    padding: 5px;
+    margin: 0 auto;
+    margin-top: 10px;
+    box-sizing: border-box;
+    font-family: 'Asap Condensed', sans-serif;
+    background-color: #134E5E;
+    color: #e5eee7;
+    font-size: 1.25em;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+
+div.field-submit input[type=button]:hover {
+}
+
+div.field-submit input[type=button]:active {
+    background-color: #e5eee7;
+    color: #134E5E;
+}
+
+div#field-error {
+    display: none;
+}
+
+span#error-value {
+    text-align: center;
+    width: 340px;
+    padding: 10px;
+    display: block;
+    border-radius: 12px;
+    background-color: #ff5136;
+    color: white;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+
