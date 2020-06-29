@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Asap:ital,wght@0,400;0,600;0,700;1,400;1,500;1,600;1,700&family=Big+Shoulders+Display:wght@700&family=Source+Code+Pro&display=swap');
+
+body {
+    display: grid;
+    grid-template-columns: 100px auto;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    font-family: 'Asap Condensed', sans-serif;
+}
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: #cccccc;
+}
+header > div {
+    width: 80px;
+    margin: 5px;
+    text-align: center;
+ }
+
+ main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: white;
+ }
+
+/*
+main::before {
+    position: absolute;
+    content: "";
+    height: 45px;
+    width: 45px;
+    left: calc(50vw + 50px);
+    top: 25vh;
+    animation-name: dance;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+*/
+
+@keyframes dance {
+  0% { transform: translateX(-150%) translateY(50%) rotateZ(45deg);  
+    background-color: #9965b8;}
+  25% {transform: translateX(50%) translateY(50%) rotateZ(-45deg);
+    background-color: #e63f1e;}
+  50% {transform: translateX(50%) translateY(200%) rotateZ(-120deg);
+    background-color: #decb1f;}
+  75% {transform: translateX(-150%) translateY(200%) rotateZ(-225deg);
+    background-color: #347d4e;}
+  100% {transform: translateX(-150%) translateY(50%) rotateZ(-315deg);
+    background-color: #9965b8;}
+} 

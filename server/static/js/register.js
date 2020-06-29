@@ -11,7 +11,8 @@ let get_fields = () => {
 
 let unhide_and_set = (fields, str) => {
     fields.errorvalue.innerHTML = str;
-    fields.error.style.display = 'block';};
+    fields.errorvalue.style.padding = '10px';
+    fields.errorvalue.style.maxHeight = '400px';};
 
 let validate = () => {
     fields = get_fields()

@@ -1,0 +1,3 @@
+dispatch:
+  - url: 0x01.xor.garden/*
+    service: default

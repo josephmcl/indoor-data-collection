@@ -1,0 +1,18 @@
+:host {
+    background-color: #dddddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+:host > div {
+    text-align: center;
+    padding: 5px;
+}
+
+img.menu-icon {
+    width: 80px;
+    height: 80px;
+}

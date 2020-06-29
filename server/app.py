@@ -18,8 +18,7 @@ def init_extentsions(app):
     db.init_app(app)
     guard.init_app(app, User)
 
-if __name__ == '__main__':
-
+def init_app():
     random.seed(time.time())
 
     app = Flask(__name__)
@@ -30,5 +29,11 @@ if __name__ == '__main__':
     
     with app.app_context():
         db.create_all()
+    return app
+
+app = init_app()
+
+if __name__ == '__main__':
+
 
     app.run(host='0.0.0.0', port=5000, debug=True) 

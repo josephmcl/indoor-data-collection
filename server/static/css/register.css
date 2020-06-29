@@ -7,29 +7,77 @@ font-family: 'Source Code Pro', monospace;
 */
 
 body {
-    background: #43C6AC;  /* fallback for old browsers */
+    margin: 0;
+    padding: 0;
+    font-family: 'Asap Condensed', sans-serif;
+}
+
+body > div {
+    background: #134E5E;  /* fallback for old browsers */
     background: -webkit-linear-gradient(217deg, #F8FFAE, #43C6AC);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(217deg, #F8FFAE, #43C6AC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     margin: 0;
     padding: 10px;
     height: calc(100vh - 20px);
 }
 
+div.rotated {
+background: #134E5E;  /* fallback for old browsers */
+background: -webkit-linear-gradient(270deg, #F8FFAE, #43C6AC);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(270deg, #F8FFAE, #43C6AC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 
-body > div {
+body > div > div {
     overflow: auto;
     min-height: 400px;
     min-width: 400px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     margin: 0;
-    font-family: 'Asap Condensed', sans-serif;
-    background: #e5eee7; 
-    color: #395c41;
+    background-color: white;
+    color: #69716a;
+    z-index: 2;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+body > div > p {
+    width: 400px;
+    text-align: right;
+    padding-right: 20px;
+}
+
+body > div > p > a {
+    text-decoration: none;
+}
+
+footer {
+    background-color: #eeeeee;
+    color: #666666;
+    height: 250px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+footer > p {
+    width: 400px;
+}
+
+footer > ul {
+    padding: 0;
+}
+
+footer > ul li {
+    display:inline;
+    margin-left: 5px;
+    margin-right: 5px;
+
 }
 
 header {
@@ -56,7 +104,7 @@ h1 + p {
 div.line {
     margin-top: 0;
     border: 0;
-    border-top: solid #395c41 1px;
+    border-top: solid #b4bbb5 1px;
     height: 0;
 }
 
@@ -83,7 +131,7 @@ div.field {
 
 div.field span {
     height: 20px;
-    padding-left: 15px;
+    padding-left: 2px;
 }
 
 div.field input {
@@ -91,11 +139,15 @@ div.field input {
     padding: 5px;
     margin: 0;
     box-sizing: border-box;
-    border: none;
-    border-radius: 12px;
+    border: solid #b4bbb5 1px;
+    border-radius: 4px;
     width: 100%;
     outline: none;
     padding-left: 15px;
+}
+
+div.field input:focus {
+    border: solid #3e9fb9 1px;
 }
 
 div.field-submit {
@@ -110,7 +162,7 @@ div.field-submit input[type=button] {
     margin-top: 10px;
     box-sizing: border-box;
     font-family: 'Asap Condensed', sans-serif;
-    background-color: #134E5E;
+    background-color: #3e9fb9;
     color: #e5eee7;
     font-size: 1.25em;
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
@@ -122,22 +174,24 @@ div.field-submit input[type=button]:hover {
 
 div.field-submit input[type=button]:active {
     background-color: #e5eee7;
-    color: #134E5E;
+    color: #3e9fb9;
 }
 
 div#field-error {
-    display: none;
+    transition: max-height 0.1s ease-in-out;
 }
 
 span#error-value {
+    max-height: 0;
+    transition: max-height 0.1s ease-in-out;
     text-align: center;
     width: 340px;
-    padding: 10px;
+    padding: 0;
     display: block;
-    border-radius: 12px;
+    border-radius: 3px;
     background-color: #ff5136;
     color: white;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 1.2em;
 }
 

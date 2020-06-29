@@ -1,0 +1,63 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Registration</title>
+  <meta name="description" content="Registration page">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+  <link rel="preload" href="{{ url_for('static', filename='js/register.js') }}" as="script">
+</head>
+
+<body>
+    <div>
+        <div>
+            <header>
+                <h1>Built-Environment Data Collection</h1>
+                <p>Revision 0.1</p>
+                <div class='line'></div>
+                <h2>User Signup</h2>
+            </header>
+            <main>
+                <form>
+                <div class="field">
+                    <span>Username</span><br><input type="text" id="username">
+                </div>
+                <div class="field">
+                    <span>Password</span><br><input type="password" id="password">
+                </div>
+                <div class="field">
+                    <span>Confirm Password</span><br><input type="password" id="confirm">
+                </div>
+                <div class="field">
+                    <span>Host Key</span><br><input type="password" id="hostkey">
+                </div>
+                <div id="field-error">
+                    <span id="error-value">Error</span>
+                </div>
+                <div class="field field-submit">
+                    <input type="button" value="Register" onclick="validate_then_submit()">
+                </div>
+                </form>
+            </main>
+        </div>
+        <p><a href="/register/device">&#x2192; Register a device instead</a></p>
+    </div>
+    <footer>
+        <p>This application is developed and maintained for the purpose of 
+           supporting research conducted in collaboration with <i>The Department of 
+           Computer and Information Science</i> and <i>The School of Architecture </i>
+           at <i>The University of Oregon</i>. 
+        </p>
+       <ul>
+            <li><a href="{{ url_for('static', filename='LICENSE.txt') }}">License</a></li>
+            <li><a href="{{ url_for('static', filename='NOTICE.txt') }}">Attributions</a></li>
+            <li><a href="https://github.com/josephmcl/indoor-data-collection">Source</a></li>
+       </ul>
+    </footer>
+    <script src="{{ url_for('static', filename='js/register.js') }}" defer></script>
+</body>
+</html>
